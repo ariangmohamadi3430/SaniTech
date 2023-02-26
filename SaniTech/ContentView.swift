@@ -13,7 +13,7 @@ import HealthKit
 struct ContentView: View {
     @State private var results : [CovidStats] = []
     @State private var steps: [Step] = [Step]()
-    
+
     private var healthStore: HealthStore?
     
     init() {
@@ -37,42 +37,42 @@ struct ContentView: View {
                     
                     
                 }.navigationBarTitle("My list")
-                    .task {
-                        await loadData()
-                    }
+                .task {
+                    await loadData()
+                }
             }.tabItem {
-                Image(systemName: "bubble.right")
-                Text("Tab 1")
-            }.tag(0)
-            
-            NavigationView {
-                
-                GraphView(steps: steps)
-                
-                    .navigationBarTitle("Tab 2")
-            }.onAppear{
-                if let healthStore = healthStore {
-                    healthStore.requestAuthorization { success in
-                        if success {
-                            healthStore.calculateSteps { statisticsCollection in
-                                if let statisticsCollection = statisticsCollection {
-                                    // update the UI
-                                    updateUIFromStatistics(statisticsCollection)
+                         Image(systemName: "bubble.right")
+                         Text("Tab 1")
+                    }.tag(0)
+
+                    NavigationView {
+                         
+                        GraphView(steps: steps)
+
+                         .navigationBarTitle("My Steps")
+                    }.onAppear{
+                        if let healthStore = healthStore {
+                            healthStore.requestAuthorization { success in
+                                if success {
+                                    healthStore.calculateSteps { statisticsCollection in
+                                        if let statisticsCollection = statisticsCollection {
+                                            // update the UI
+                                            updateUIFromStatistics(statisticsCollection)
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
-                }
-            }
-            .tabItem {
-                Image(systemName: "bubble.left")
-                Text("Tab 2")
-            }.tag(1)
-        }.edgesIgnoringSafeArea(.top)
+                    .tabItem {
+                         Image(systemName: "bubble.left")
+                         Text("Tab 2")
+                    }.tag(1)
+               }.edgesIgnoringSafeArea(.top)
     }
     
     func loadData() async {
-        
+
         guard let url = URL(string: "https://api.apify.com/v2/key-value-stores/moxA3Q0aZh5LosewB/records/LATEST?disableRedirect=true") else {
             print("Invalid URL")
             return
@@ -80,7 +80,7 @@ struct ContentView: View {
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
-            
+
             // more code to come
             
             if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data) {
@@ -114,14 +114,4 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 
-struct Response: Codable {
-    
-    var casesByState: [CovidStats]
-}
 
-struct CovidStats: Codable {
-    
-    var range: String
-    var casesReported: Int
-    var name: String
-}

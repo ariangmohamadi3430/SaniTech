@@ -39,13 +39,13 @@ struct GraphView: View {
                     VStack {
                         Text("\(step.count)")
                             .font(.caption)
-                            .foregroundColor(Color.white)
+                            .foregroundColor(Color.black)
                         Rectangle()
                             .fill(Color.orange)
                             .frame(width: 8, height: CGFloat(Value))
                         Text("\(step.date,formatter: Self.dateFormatter)")
                             .font(.caption2)
-                            .foregroundColor(Color.white)
+                            .foregroundColor(Color.black)
                             .rotationEffect(.degrees(45.0))
                         
                     }
@@ -55,11 +55,11 @@ struct GraphView: View {
         }
          .environment(\.layoutDirection, .rightToLeft)
             Text("Total Steps: \(totalSteps)").padding(.top, 100)
-                .foregroundColor(Color.white)
+                .foregroundColor(Color.gray)
                 .opacity(0.5)
             
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.blue)
+            .background(Color.white)
         .cornerRadius(40)
         .padding(10)
     }

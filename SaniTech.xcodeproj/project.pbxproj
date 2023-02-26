@@ -18,6 +18,7 @@
 		D2FD728329ABBD8E000844D5 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FD728229ABBD8E000844D5 /* HealthStore.swift */; };
 		D2FD728729ABC0D0000844D5 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FD728629ABC0D0000844D5 /* Step.swift */; };
 		D2FD728A29ABC107000844D5 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FD728929ABC107000844D5 /* GraphView.swift */; };
+		D2FD728C29ABC58E000844D5 /* CovidStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FD728B29ABC58E000844D5 /* CovidStats.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		D2FD728429ABC013000844D5 /* SaniTech.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SaniTech.entitlements; sourceTree = "<group>"; };
 		D2FD728629ABC0D0000844D5 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		D2FD728929ABC107000844D5 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		D2FD728B29ABC58E000844D5 /* CovidStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidStats.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,11 +107,11 @@
 			children = (
 				D2FD728829ABC0E8000844D5 /* View */,
 				D2FD728529ABC0BB000844D5 /* Models */,
-				D2FD728429ABC013000844D5 /* SaniTech.entitlements */,
 				D212E1F929AA8AC4000938A4 /* SaniTechApp.swift */,
 				D212E1FB29AA8AC4000938A4 /* ContentView.swift */,
 				D2FD728029ABBB43000844D5 /* DetailsView.swift */,
 				D2FD728229ABBD8E000844D5 /* HealthStore.swift */,
+				D2FD728429ABC013000844D5 /* SaniTech.entitlements */,
 				D212E1FD29AA8AC6000938A4 /* Assets.xcassets */,
 				D212E1FF29AA8AC6000938A4 /* Preview Content */,
 			);
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				D2FD728629ABC0D0000844D5 /* Step.swift */,
+				D2FD728B29ABC58E000844D5 /* CovidStats.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D212E1FC29AA8AC4000938A4 /* ContentView.swift in Sources */,
+				D2FD728C29ABC58E000844D5 /* CovidStats.swift in Sources */,
 				D212E1FA29AA8AC4000938A4 /* SaniTechApp.swift in Sources */,
 				D2FD728729ABC0D0000844D5 /* Step.swift in Sources */,
 				D2FD728129ABBB43000844D5 /* DetailsView.swift in Sources */,

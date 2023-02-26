@@ -13,12 +13,14 @@ struct DetailsView: View {
         
         var body: some View {
             
-    //       let salam =  myValue[0].casesByState
             
             VStack(alignment: .leading){
                 
-                Text(response.name + "TTTT")
+                Text("City Name :  " + response.name)
                     .font(.title)
+                Text("CasesReported :  " + String(response.casesReported))
+
+                    .font(.title2)
                 
                 
             }
