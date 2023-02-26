@@ -6,22 +6,19 @@
 //
 
 import SwiftUI
+import HealthKit
 
-struct Response: Codable {
-    
-    var casesByState: [CovidStats]
-}
 
-struct CovidStats: Codable {
-    
-    var range: String
-    var casesReported: Int
-    var name: String
-}
 
 struct ContentView: View {
     @State private var results : [CovidStats] = []
-
+    @State private var steps: [Step] = [Step]()
+    
+    private var healthStore: HealthStore?
+    
+    init() {
+        healthStore = HealthStore()
+    }
     
     var body: some View {
         TabView {
@@ -40,30 +37,42 @@ struct ContentView: View {
                     
                     
                 }.navigationBarTitle("My list")
-                .task {
-                    await loadData()
-                }
+                    .task {
+                        await loadData()
+                    }
             }.tabItem {
-                         Image(systemName: "bubble.right")
-                         Text("Tab 1")
-                    }.tag(0)
-
-                    NavigationView {
-                         List {
-                              ForEach((1...50), id: \.self) {
-                                   Text("Row in Tab 2 Number: \($0)")
-                              }
-                         }
-                         .navigationBarTitle("Tab 2")
-                    }.tabItem {
-                         Image(systemName: "bubble.left")
-                         Text("Tab 2")
-                    }.tag(1)
-               }.edgesIgnoringSafeArea(.top)
+                Image(systemName: "bubble.right")
+                Text("Tab 1")
+            }.tag(0)
+            
+            NavigationView {
+                
+                GraphView(steps: steps)
+                
+                    .navigationBarTitle("Tab 2")
+            }.onAppear{
+                if let healthStore = healthStore {
+                    healthStore.requestAuthorization { success in
+                        if success {
+                            healthStore.calculateSteps { statisticsCollection in
+                                if let statisticsCollection = statisticsCollection {
+                                    // update the UI
+                                    updateUIFromStatistics(statisticsCollection)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .tabItem {
+                Image(systemName: "bubble.left")
+                Text("Tab 2")
+            }.tag(1)
+        }.edgesIgnoringSafeArea(.top)
     }
     
     func loadData() async {
-
+        
         guard let url = URL(string: "https://api.apify.com/v2/key-value-stores/moxA3Q0aZh5LosewB/records/LATEST?disableRedirect=true") else {
             print("Invalid URL")
             return
@@ -71,7 +80,7 @@ struct ContentView: View {
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
-
+            
             // more code to come
             
             if let decodedResponse = try? JSONDecoder().decode(Response.self, from: data) {
@@ -81,6 +90,20 @@ struct ContentView: View {
             print("Invalid data")
         }
     }
+    private func updateUIFromStatistics(_ statisticsCollection: HKStatisticsCollection) {
+        
+        let startDate = Calendar.current.date(byAdding: .day, value: -29, to: Date())!
+        let endDate = Date()
+        
+        statisticsCollection.enumerateStatistics(from: startDate, to: endDate) { (statistics, stop) in
+            
+            let count = statistics.sumQuantity()?.doubleValue(for: .count())
+            
+            let step = Step(count: Int(count ?? 0), date: statistics.startDate)
+            steps.append(step)
+        }
+        
+    }
     
 }
 
@@ -88,4 +111,17 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+}
+
+
+struct Response: Codable {
+    
+    var casesByState: [CovidStats]
+}
+
+struct CovidStats: Codable {
+    
+    var range: String
+    var casesReported: Int
+    var name: String
 }
