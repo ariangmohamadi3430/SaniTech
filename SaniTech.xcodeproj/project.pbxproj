@@ -15,6 +15,7 @@
 		D212E21529AA8AC7000938A4 /* SaniTechUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212E21429AA8AC7000938A4 /* SaniTechUITests.swift */; };
 		D212E21729AA8AC7000938A4 /* SaniTechUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212E21629AA8AC7000938A4 /* SaniTechUITestsLaunchTests.swift */; };
 		D2FD728129ABBB43000844D5 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FD728029ABBB43000844D5 /* DetailsView.swift */; };
+		D2FD728329ABBD8E000844D5 /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FD728229ABBD8E000844D5 /* HealthStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		D212E21429AA8AC7000938A4 /* SaniTechUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaniTechUITests.swift; sourceTree = "<group>"; };
 		D212E21629AA8AC7000938A4 /* SaniTechUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaniTechUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D2FD728029ABBB43000844D5 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		D2FD728229ABBD8E000844D5 /* HealthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +100,10 @@
 			children = (
 				D212E1F929AA8AC4000938A4 /* SaniTechApp.swift */,
 				D212E1FB29AA8AC4000938A4 /* ContentView.swift */,
+				D2FD728029ABBB43000844D5 /* DetailsView.swift */,
+				D2FD728229ABBD8E000844D5 /* HealthStore.swift */,
 				D212E1FD29AA8AC6000938A4 /* Assets.xcassets */,
 				D212E1FF29AA8AC6000938A4 /* Preview Content */,
-				D2FD728029ABBB43000844D5 /* DetailsView.swift */,
 			);
 			path = SaniTech;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				D212E1FC29AA8AC4000938A4 /* ContentView.swift in Sources */,
 				D212E1FA29AA8AC4000938A4 /* SaniTechApp.swift in Sources */,
 				D2FD728129ABBB43000844D5 /* DetailsView.swift in Sources */,
+				D2FD728329ABBD8E000844D5 /* HealthStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
