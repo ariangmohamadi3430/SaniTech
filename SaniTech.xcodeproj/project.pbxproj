@@ -14,6 +14,7 @@
 		D212E20B29AA8AC7000938A4 /* SaniTechTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212E20A29AA8AC7000938A4 /* SaniTechTests.swift */; };
 		D212E21529AA8AC7000938A4 /* SaniTechUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212E21429AA8AC7000938A4 /* SaniTechUITests.swift */; };
 		D212E21729AA8AC7000938A4 /* SaniTechUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D212E21629AA8AC7000938A4 /* SaniTechUITestsLaunchTests.swift */; };
+		D2FD728129ABBB43000844D5 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2FD728029ABBB43000844D5 /* DetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		D212E21029AA8AC7000938A4 /* SaniTechUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaniTechUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D212E21429AA8AC7000938A4 /* SaniTechUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaniTechUITests.swift; sourceTree = "<group>"; };
 		D212E21629AA8AC7000938A4 /* SaniTechUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaniTechUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D2FD728029ABBB43000844D5 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				D212E1FB29AA8AC4000938A4 /* ContentView.swift */,
 				D212E1FD29AA8AC6000938A4 /* Assets.xcassets */,
 				D212E1FF29AA8AC6000938A4 /* Preview Content */,
+				D2FD728029ABBB43000844D5 /* DetailsView.swift */,
 			);
 			path = SaniTech;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			files = (
 				D212E1FC29AA8AC4000938A4 /* ContentView.swift in Sources */,
 				D212E1FA29AA8AC4000938A4 /* SaniTechApp.swift in Sources */,
+				D2FD728129ABBB43000844D5 /* DetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
